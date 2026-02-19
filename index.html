@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fa-AF" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>اوقات شرعی ولایت جوزجان و اطراف آن - قاری جان محمد</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;500;700&display=swap');
+
+    :root {
+        --primary-dark: #0f3d24;
+        --primary-green: #1a5c39;
+        --gold: #d4af37;
+        --bg-color: #f0f4f0;
+        --white: #ffffff;
+        --friday-bg: #fff3cd;
+        --friday-text: #856404;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Vazirmatn', sans-serif;
+        background-color: var(--bg-color);
+        color: #333;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .app-container {
+        width: 100%;
+        max-width: 450px; /* تنظیم برای صفحه گوشی */
+        background: var(--white);
+        box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #homePage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        padding: 20px;
+        background: linear-gradient(135deg, #ffffff 60%, #e8f5e9 100%);
+    }
+
+    .main-header {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 10px;
+        width: 100%;
+    }
+
+    .main-header h1 {
+        color: var(--primary-green);
+        font-family: 'Amiri', serif;
+        font-size: 21px; /* اندازه مناسب برای موبایل */
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .day-name-display {
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--primary-green);
+        margin-bottom: -15px;
+        z-index: 2;
+        background: var(--white);
+        padding: 0 15px;
+        border-radius: 10px;
+    }
+
+    .digital-clock-container {
+        margin: 25px 0;
+        text-align: center;
+        background: var(--primary-dark);
+        color: var(--gold);
+        padding: 15px 40px;
+        border-radius: 50px;
+        box-shadow: 0 5px 15px rgba(26, 92, 57, 0.4);
+        border: 2px solid var(--gold);
+        width: 70%;
+    }
+
+    .clock-time {
+        font-size: 36px;
+        font-weight: bold;
+        font-family: 'Amiri', serif;
+    }
+
+    .time-card {
+        background: white;
+        width: 100%;
+        border-radius: 15px;
+        padding: 15px;
+        margin: 10px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        border-right: 5px solid var(--primary-green);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .card-label { 
+        font-size: 16px; 
+        font-weight: bold; 
+        color: #555; 
+    }
+    
+    .time-wrapper {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-time { 
+        font-family: 'Amiri', serif; 
+        font-size: 32px; 
+        font-weight: bold; 
+        color: var(--primary-dark); 
+        line-height: 1.2;
+    }
+
+    /* استایل خانه کوچک احتیاط مثل ساعت */
+    .caution-box {
+        background: var(--primary-dark);
+        color: var(--gold);
+        font-size: 10px;
+        padding: 4px 8px;
+        border-radius: 8px;
+        margin-top: 5px;
+        border: 1px solid var(--gold);
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
+
+    .enter-btn {
+        background: var(--primary-green);
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-top: auto;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* استایل زیبای اسم ترتیب کننده */
+    .personal-footer {
+        text-align: center;
+        margin-bottom: 5px;
+        border-top: 1px solid #ddd;
+        padding-top: 15px;
+        width: 100%;
+    }
+
+    .personal-footer p {
+        font-size: 12px;
+        color: #777;
+        margin: 0 0 5px 0;
+    }
+
+    .creator-name {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Amiri', serif;
+        background: linear-gradient(45deg, #1a5c39, #d4af37, #1a5c39);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    #schedulePage { display: none; flex-direction: column; height: 100vh; }
+    .schedule-header { background: var(--primary-green); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+    .back-btn { background:none; border:1px solid white; color:white; border-radius:5px; padding: 5px 15px; cursor: pointer; font-family: 'Vazirmatn', sans-serif;}
+    .table-wrapper { flex: 1; overflow-y: auto; padding: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { background: var(--primary-dark); color: var(--gold); padding: 10px; position: sticky; top: 0; }
+    td { padding: 10px 5px; border-bottom: 1px solid #eee; text-align: center; }
+    .friday-row { background-color: var(--friday-bg); }
+    .today-highlight { background-color: #e8f5e9; border: 2px solid var(--primary-green); font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <div id="homePage">
+        <div class="main-header">
+            <h1>اوقات شرعی ولایت جوزجان و اطراف آن</h1>
+            <p id="todayDateDisplay" style="color: #666; font-size: 14px;">--</p>
+        </div>
+
+        <div class="day-name-display" id="homeDayName">امروز</div>
+
+        <div class="digital-clock-container">
+            <span class="clock-time" id="liveClock">00:00</span>
+        </div>
+
+        <div class="time-card">
+            <div class="card-label">وقت افطار</div>
+            <div class="time-wrapper">
+                <div class="card-time" id="homeIftar">--:--</div>
+                <div class="caution-box">دو دقیقه بعد: احتیاط</div>
+            </div>
+        </div>
+
+        <div class="time-card" style="border-right-color: var(--gold);">
+            <div class="card-label">ختم سحری</div>
+            <div class="time-wrapper">
+                <div class="card-time" id="homeSahur">--:--</div>
+                <div class="caution-box">دو دقیقه زودتر: احتیاط</div>
+            </div>
+        </div>
+
+        <button class="enter-btn" onclick="showSchedule()">
+            مشاهده جدول کامل
+        </button>
+
+        <div class="personal-footer">
+            <p>ترتیب کننده:</p>
+            <div class="creator-name">جان محمد دین دوست</div>
+        </div>
+    </div>
+
+    <div id="schedulePage">
+        <div class="schedule-header">
+            <span style="font-weight: bold;">جدول کامل رمضان</span>
+            <button class="back-btn" onclick="showHome()">بازگشت</button>
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>روز</th>
+                        <th>تاریخ</th>
+                        <th>سحر</th>
+                        <th>افطار</th>
+                        <th>هفته</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    const ramadanData = [
+        { day: 1,  date: "۲۹ دلو", week: "چهارشنبه", sahur: "5:23", iftar: "5:52" },
+        { day: 2,  date: "۳۰ دلو", week: "پنجشنبه",   sahur: "5:22", iftar: "5:53" },
+        { day: 3,  date: "۰۱ حوت", week: "جمعه",      sahur: "5:21", iftar: "5:54" },
+        { day: 4,  date: "۰۲ حوت", week: "شنبه",      sahur: "5:20", iftar: "5:55" },
+        { day: 5,  date: "۰۳ حوت", week: "یکشنبه",    sahur: "5:19", iftar: "5:56" },
+        { day: 6,  date: "۰۴ حوت", week: "دوشنبه",    sahur: "5:18", iftar: "5:57" },
+        { day: 7,  date: "۰۵ حوت", week: "سه‌شنبه",   sahur: "5:17", iftar: "5:58" },
+        { day: 8,  date: "۰۶ حوت", week: "چهارشنبه", sahur: "5:15", iftar: "5:59" },
+        { day: 9,  date: "۰۷ حوت", week: "پنجشنبه",   sahur: "5:14", iftar: "6:00" },
+        { day: 10, date: "۰۸ حوت", week: "جمعه",      sahur: "5:13", iftar: "6:01" },
+        { day: 11, date: "۰۹ حوت", week: "شنبه",      sahur: "5:12", iftar: "6:02" },
+        { day: 12, date: "۱۰ حوت", week: "یکشنبه",    sahur: "5:10", iftar: "6:03" },
+        { day: 13, date: "۱۱ حوت", week: "دوشنبه",    sahur: "5:09", iftar: "6:04" },
+        { day: 14, date: "۱۲ حوت", week: "سه‌شنبه",   sahur: "5:08", iftar: "6:05" },
+        { day: 15, date: "۱۳ حوت", week: "چهارشنبه", sahur: "5:06", iftar: "6:06" },
+        { day: 16, date: "۱۴ حوت", week: "پنجشنبه",   sahur: "5:05", iftar: "6:07" },
+        { day: 17, date: "۱۵ حوت", week: "جمعه",      sahur: "5:03", iftar: "6:08" },
+        { day: 18, date: "۱۶ حوت", week: "شنبه",      sahur: "5:02", iftar: "6:09" },
+        { day: 19, date: "۱۷ حوت", week: "یکشنبه",    sahur: "5:01", iftar: "6:10" },
+        { day: 20, date: "۱۸ حوت", week: "دوشنبه",    sahur: "4:59", iftar: "6:11" },
+        { day: 21, date: "۱۹ حوت", week: "سه‌شنبه",   sahur: "4:58", iftar: "6:12" },
+        { day: 22, date: "۲۰ حوت", week: "چهارشنبه", sahur: "4:56", iftar: "6:12" },
+        { day: 23, date: "۲۱ حوت", week: "پنجشنبه",   sahur: "4:55", iftar: "6:13" },
+        { day: 24, date: "۲۲ حوت", week: "جمعه",      sahur: "4:53", iftar: "6:14" },
+        { day: 25, date: "۲۳ حوت", week: "شنبه",      sahur: "4:52", iftar: "6:15" },
+        { day: 26, date: "۲۴ حوت", week: "یکشنبه",    sahur: "4:50", iftar: "6:16" },
+        { day: 27, date: "۲۵ حوت", week: "دوشنبه",    sahur: "4:49", iftar: "6:17" },
+        { day: 28, date: "۲۶ حوت", week: "سه‌شنبه",   sahur: "4:47", iftar: "6:18" },
+        { day: 29, date: "۲۷ حوت", week: "چهارشنبه", sahur: "4:46", iftar: "6:19" },
+        { day: 30, date: "۲۸ حوت", week: "پنجشنبه",   sahur: "4:44", iftar: "6:20" }
+    ];
+
+    function showSchedule() { document.getElementById('homePage').style.display = 'none'; document.getElementById('schedulePage').style.display = 'flex'; }
+    function showHome() { document.getElementById('schedulePage').style.display = 'none'; document.getElementById('homePage').style.display = 'flex'; }
+
+    function updateClock() {
+        const now = new Date();
+        const h = now.getHours();
+        const m = String(now.getMinutes()).padStart(2, '0');
+        document.getElementById('liveClock').innerText = `${h % 12 || 12}:${m}`;
+    }
+    setInterval(updateClock, 1000);
+
+    // تابعی برای تبدیل دقیق تاریخ به نام ماه‌های افغانستان (جلوگیری از نمایش بهمن/اسفند)
+    function getAfghanDateStr(dateObj) {
+        const pDay = new Intl.DateTimeFormat('en-US-u-ca-persian', { day: 'numeric' }).format(dateObj);
+        const pMonthIndex = new Intl.DateTimeFormat('en-US-u-ca-persian', { month: 'numeric' }).format(dateObj) - 1;
+        const afghanMonths = ['حمل', 'ثور', 'جوزا', 'سرطان', 'اسد', 'سنبله', 'میزان', 'عقرب', 'قوس', 'جدی', 'دلو', 'حوت'];
+        const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        const pDayFa = pDay.toString().replace(/\d/g, x => farsiDigits[x]);
+        return `${pDayFa} ${afghanMonths[pMonthIndex]}`;
+    }
+
+    function initApp() {
+        const now = new Date();
+        
+        // تولید تاریخ دقیق با نام ماه‌های افغانستان
+        const dateStr = getAfghanDateStr(now);
+        // نام روز هفته
+        const weekStr = new Intl.DateTimeFormat('fa-AF', { weekday: 'long' }).format(now);
+
+        document.getElementById('todayDateDisplay').innerText = dateStr;
+        document.getElementById('homeDayName').innerText = weekStr;
+
+        // یافتن دقیق اطلاعات روز جاری بر اساس تاریخ (مثلاً ۲۹ دلو)
+        let todayData = ramadanData.find(d => dateStr === d.date);
+        
+        if(!todayData) {
+            todayData = ramadanData.find(d => d.week === weekStr);
+        }
+
+        if(todayData) {
+            document.getElementById('homeIftar').innerText = todayData.iftar;
+            document.getElementById('homeSahur').innerText = todayData.sahur;
+        }
+
+        const tbody = document.getElementById('tableBody');
+        ramadanData.forEach((item) => {
+            const tr = document.createElement('tr');
+            if(item.week === "جمعه") tr.classList.add('friday-row');
+            if(todayData && item.day === todayData.day) tr.classList.add('today-highlight');
+            tr.innerHTML = `<td>${item.day}</td><td>${item.date}</td><td style="color:green">${item.sahur}</td><td style="color:red">${item.iftar}</td><td>${item.week}</td>`;
+            tbody.appendChild(tr);
+        });
+    }
+    
+    initApp();
+    updateClock();
+</script>
+</body>
+</html>
