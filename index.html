@@ -46,32 +46,48 @@
         flex-direction: column;
         align-items: center;
         height: 100%;
-        padding: 20px;
+        padding: 15px;
         background: linear-gradient(135deg, #ffffff 60%, #e8f5e9 100%);
+        overflow-y: auto;
     }
 
     .main-header {
         text-align: center;
-        margin-top: 10px;
-        margin-bottom: 20px;
+        margin-top: 5px;
+        margin-bottom: 25px;
         border-bottom: 2px solid var(--gold);
-        padding-bottom: 10px;
+        padding-bottom: 15px;
         width: 100%;
     }
 
     .main-header h1 {
         color: var(--primary-green);
         font-family: 'Amiri', serif;
-        font-size: 19px;
-        margin: 0;
+        font-size: 18px;
+        margin: 0 0 15px 0;
         line-height: 1.5;
     }
 
-    .day-name-display {
+    /* باکس تاریخ با عدد انگلیسی */
+    .date-box {
+        background: #e8f5e9;
+        border: 2px solid var(--primary-green);
+        color: var(--primary-dark);
         font-size: 20px;
         font-weight: bold;
+        padding: 6px 20px;
+        border-radius: 10px;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin: 0;
+    }
+
+    .day-name-display {
+        font-size: 18px;
+        font-weight: bold;
         color: var(--primary-green);
-        margin-bottom: -15px;
+        margin-bottom: -10px;
         z-index: 2;
         background: var(--white);
         padding: 0 15px;
@@ -79,25 +95,25 @@
     }
 
     .digital-clock-container {
-        margin: 25px 0;
+        margin: 15px 0;
         background: var(--primary-dark);
         color: var(--gold);
-        padding: 15px 30px;
+        padding: 10px 20px;
         border-radius: 50px;
         box-shadow: 0 5px 15px rgba(26, 92, 57, 0.4);
         border: 2px solid var(--gold);
-        width: 75%;
+        width: 70%;
         display: flex;
         justify-content: center;
         align-items: center;
-        direction: ltr; /* ساعت از چپ به راست */
+        direction: ltr;
         gap: 8px;
     }
 
-    .clock-time { font-size: 36px; font-weight: bold; font-family: 'Arial', sans-serif; }
+    .clock-time { font-size: 30px; font-weight: bold; font-family: 'Arial', sans-serif; }
     
     .ampm-text { 
-        font-size: 16px; 
+        font-size: 14px; 
         font-family: 'Vazirmatn', sans-serif; 
         direction: rtl; 
         margin-right: 10px;
@@ -106,19 +122,51 @@
         border-radius: 8px;
     }
 
-    /* انیمیشن چشمک زدن دونقطه */
-    @keyframes blinker {
-        50% { opacity: 0; }
-    }
+    @keyframes blinker { 50% { opacity: 0; } }
     .blink { animation: blinker 1s linear infinite; }
+
+    /* --- بخش دعاها --- */
+    .prayer-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    .prayer-box {
+        background: white;
+        border-radius: 10px;
+        padding: 10px 12px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        border: 1px solid #e8e8e8;
+    }
+
+    .prayer-title {
+        font-size: 13px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 3px;
+        color: var(--primary-green);
+    }
+
+    .prayer-text {
+        font-family: 'Amiri', serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: #111;
+        line-height: 1.6;
+    }
 
     .time-card {
         background: white;
         width: 100%;
-        border-radius: 15px;
-        padding: 15px;
-        margin: 10px 0;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        border-radius: 12px;
+        padding: 10px 15px;
+        margin: 6px 0;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.08);
         border-right: 5px solid var(--primary-green);
         display: flex;
         justify-content: space-between;
@@ -126,7 +174,7 @@
         box-sizing: border-box;
     }
 
-    .card-label { font-size: 16px; font-weight: bold; color: #555; }
+    .card-label { font-size: 14px; font-weight: bold; color: #555; }
     
     .time-wrapper {
         text-align: left;
@@ -143,7 +191,7 @@
 
     .card-time { 
         font-family: 'Amiri', serif; 
-        font-size: 32px; 
+        font-size: 26px; 
         font-weight: bold; 
         color: var(--primary-dark); 
         line-height: 1.2;
@@ -152,10 +200,10 @@
     .caution-box {
         background: var(--primary-dark);
         color: var(--gold);
-        font-size: 10px;
-        padding: 4px 8px;
-        border-radius: 8px;
-        margin-top: 5px;
+        font-size: 9px;
+        padding: 3px 6px;
+        border-radius: 6px;
+        margin-top: 4px;
         border: 1px solid var(--gold);
         font-weight: bold;
     }
@@ -164,13 +212,13 @@
         background: var(--primary-green);
         color: white;
         border: none;
-        padding: 15px 40px;
-        font-size: 16px;
+        padding: 12px 35px;
+        font-size: 15px;
         font-weight: bold;
         border-radius: 30px;
         cursor: pointer;
-        margin-top: auto;
-        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-bottom: 15px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
 
@@ -178,12 +226,13 @@
         text-align: center;
         margin-bottom: 5px;
         border-top: 1px solid #ddd;
-        padding-top: 15px;
+        padding-top: 10px;
         width: 100%;
+        margin-top: auto;
     }
-    .personal-footer p { font-size: 12px; color: #777; margin: 0 0 5px 0; }
+    .personal-footer p { font-size: 11px; color: #777; margin: 0 0 3px 0; }
     .creator-name {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         font-family: 'Amiri', serif;
         background: linear-gradient(45deg, #1a5c39, #d4af37, #1a5c39);
@@ -245,11 +294,47 @@
     .cautions-row {
         display: flex;
         justify-content: space-between;
-        font-size: 11px;
+        font-size: 10px;
         font-weight: bold;
         color: #d60000;
         border-top: 1px solid #ddd;
-        padding-top: 8px;
+        padding-top: 6px;
+        margin-top: 6px;
+    }
+
+    .capture-prayers-container {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 10px;
+    }
+
+    .capture-prayer-box {
+        background: #f4fdf6;
+        border: 1px solid var(--primary-green);
+        border-radius: 6px;
+        padding: 6px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .cap-prayer-title {
+        color: var(--primary-green);
+        font-family: 'Vazirmatn', sans-serif;
+        font-weight: bold;
+        font-size: 11px;
+        white-space: nowrap;
+        margin-left: 10px;
+    }
+
+    .cap-prayer-text {
+        font-family: 'Amiri', serif;
+        font-size: 13px;
+        font-weight: bold;
+        color: #111;
+        text-align: right;
+        flex-grow: 1;
     }
 
     table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: center; }
@@ -278,7 +363,7 @@
     <div id="homePage">
         <div class="main-header">
             <h1>اوقات شرعی افطاری و ختم سحری ولایت جوزجان اطراف و ناحیه آن</h1>
-            <p id="todayDateDisplay" style="color: #666; font-size: 14px; margin-top: 5px;">--</p>
+            <div id="todayDateDisplay" class="date-box">--</div>
         </div>
 
         <div class="day-name-display" id="homeDayName">امروز</div>
@@ -288,6 +373,17 @@
             <span class="clock-time" id="liveClockHour">00</span>
             <span class="clock-time blink">:</span>
             <span class="clock-time" id="liveClockMinute">00</span>
+        </div>
+
+        <div class="prayer-container">
+            <div class="prayer-box">
+                <span class="prayer-title">دعای نیت روزه »</span>
+                <span class="prayer-text">وَ بِصَوْمٍ غَدٍ فَرِيضَتْ نَوَيْتُ مِن شَهْرِ رَمَضَانَ</span>
+            </div>
+            <div class="prayer-box">
+                <span class="prayer-title">دعای افطار »</span>
+                <span class="prayer-text">اللَّهُمَّ إِنِّي لَكَ صُمْتُ وَ بِكَ آمَنْتُ وَ عَلَيْكَ تَوَكَّلْتُ وَ عَلَى رِزْقِكَ أَفْطَرْتُ</span>
+            </div>
         </div>
 
         <div class="time-card">
@@ -330,9 +426,21 @@
             <div id="captureArea">
                 <div class="capture-title-box">
                     <h2>اوقات شرعی افطاری و ختم سحری ولایت جوزجان اطراف و ناحیه آن</h2>
+                    
                     <div class="cautions-row">
-                        <span>پایان وقت افطار دو دقیقه بعد احتیاط:</span>
-                        <span>ختم سحری دو دقیقه قبل احتیاط:</span>
+                        <span>ختم سحری دو دقیقه زودتر</span>
+                        <span>وقت افطار دو دقیقه دیرتر</span>
+                    </div>
+
+                    <div class="capture-prayers-container">
+                        <div class="capture-prayer-box">
+                            <span class="cap-prayer-title">دعای نیت روزه:</span>
+                            <span class="cap-prayer-text">وَ بِصَوْمٍ غَدٍ فَرِيضَتْ نَوَيْتُ مِن شَهْرِ رَمَضَانَ</span>
+                        </div>
+                        <div class="capture-prayer-box">
+                            <span class="cap-prayer-title">دعای افطار:</span>
+                            <span class="cap-prayer-text">اللَّهُمَّ إِنِّي لَكَ صُمْتُ وَ بِكَ آمَنْتُ وَ عَلَيْكَ تَوَكَّلْتُ وَ عَلَى رِزْقِكَ أَفْطَرْتُ</span>
+                        </div>
                     </div>
                 </div>
 
@@ -359,39 +467,38 @@
 
 <script>
     const ramadanData = [
-        { day: 1,  date: "۲۹ دلو", week: "چهارشنبه", sahur: "5:23", iftar: "5:52" },
-        { day: 2,  date: "۳۰ دلو", week: "پنجشنبه",   sahur: "5:22", iftar: "5:53" },
-        { day: 3,  date: "۰۱ حوت", week: "جمعه",      sahur: "5:21", iftar: "5:54" },
-        { day: 4,  date: "۰۲ حوت", week: "شنبه",      sahur: "5:20", iftar: "5:55" },
-        { day: 5,  date: "۰۳ حوت", week: "یکشنبه",    sahur: "5:19", iftar: "5:56" },
-        { day: 6,  date: "۰۴ حوت", week: "دوشنبه",    sahur: "5:18", iftar: "5:57" },
-        { day: 7,  date: "۰۵ حوت", week: "سه‌شنبه",   sahur: "5:17", iftar: "5:58" },
-        { day: 8,  date: "۰۶ حوت", week: "چهارشنبه", sahur: "5:15", iftar: "5:59" },
-        { day: 9,  date: "۰۷ حوت", week: "پنجشنبه",   sahur: "5:14", iftar: "6:00" },
-        { day: 10, date: "۰۸ حوت", week: "جمعه",      sahur: "5:13", iftar: "6:01" },
-        { day: 11, date: "۰۹ حوت", week: "شنبه",      sahur: "5:12", iftar: "6:02" },
-        { day: 12, date: "۱۰ حوت", week: "یکشنبه",    sahur: "5:10", iftar: "6:03" },
-        { day: 13, date: "۱۱ حوت", week: "دوشنبه",    sahur: "5:09", iftar: "6:04" },
-        { day: 14, date: "۱۲ حوت", week: "سه‌شنبه",   sahur: "5:08", iftar: "6:05" },
-        { day: 15, date: "۱۳ حوت", week: "چهارشنبه", sahur: "5:06", iftar: "6:06" },
-        { day: 16, date: "۱۴ حوت", week: "پنجشنبه",   sahur: "5:05", iftar: "6:07" },
-        { day: 17, date: "۱۵ حوت", week: "جمعه",      sahur: "5:03", iftar: "6:08" },
-        { day: 18, date: "۱۶ حوت", week: "شنبه",      sahur: "5:02", iftar: "6:09" },
-        { day: 19, date: "۱۷ حوت", week: "یکشنبه",    sahur: "5:01", iftar: "6:10" },
-        { day: 20, date: "۱۸ حوت", week: "دوشنبه",    sahur: "4:59", iftar: "6:11" },
-        { day: 21, date: "۱۹ حوت", week: "سه‌شنبه",   sahur: "4:58", iftar: "6:12" },
-        { day: 22, date: "۲۰ حوت", week: "چهارشنبه", sahur: "4:56", iftar: "6:12" },
-        { day: 23, date: "۲۱ حوت", week: "پنجشنبه",   sahur: "4:55", iftar: "6:13" },
-        { day: 24, date: "۲۲ حوت", week: "جمعه",      sahur: "4:53", iftar: "6:14" },
-        { day: 25, date: "۲۳ حوت", week: "شنبه",      sahur: "4:52", iftar: "6:15" },
-        { day: 26, date: "۲۴ حوت", week: "یکشنبه",    sahur: "4:50", iftar: "6:16" },
-        { day: 27, date: "۲۵ حوت", week: "دوشنبه",    sahur: "4:49", iftar: "6:17" },
-        { day: 28, date: "۲۶ حوت", week: "سه‌شنبه",   sahur: "4:47", iftar: "6:18" },
-        { day: 29, date: "۲۷ حوت", week: "چهارشنبه", sahur: "4:46", iftar: "6:19" },
-        { day: 30, date: "۲۸ حوت", week: "پنجشنبه",   sahur: "4:44", iftar: "6:20" }
+        { day: 1,  date: "29 دلو", week: "چهارشنبه", sahur: "5:23", iftar: "5:52" },
+        { day: 2,  date: "30 دلو", week: "پنجشنبه",   sahur: "5:22", iftar: "5:53" },
+        { day: 3,  date: "1 حوت",  week: "جمعه",      sahur: "5:21", iftar: "5:54" },
+        { day: 4,  date: "2 حوت",  week: "شنبه",      sahur: "5:20", iftar: "5:55" },
+        { day: 5,  date: "3 حوت",  week: "یکشنبه",    sahur: "5:19", iftar: "5:56" },
+        { day: 6,  date: "4 حوت",  week: "دوشنبه",    sahur: "5:18", iftar: "5:57" },
+        { day: 7,  date: "5 حوت",  week: "سه‌شنبه",   sahur: "5:17", iftar: "5:58" },
+        { day: 8,  date: "6 حوت",  week: "چهارشنبه", sahur: "5:15", iftar: "5:59" },
+        { day: 9,  date: "7 حوت",  week: "پنجشنبه",   sahur: "5:14", iftar: "6:00" },
+        { day: 10, date: "8 حوت",  week: "جمعه",      sahur: "5:13", iftar: "6:01" },
+        { day: 11, date: "9 حوت",  week: "شنبه",      sahur: "5:12", iftar: "6:02" },
+        { day: 12, date: "10 حوت", week: "یکشنبه",    sahur: "5:10", iftar: "6:03" },
+        { day: 13, date: "11 حوت", week: "دوشنبه",    sahur: "5:09", iftar: "6:04" },
+        { day: 14, date: "12 حوت", week: "سه‌شنبه",   sahur: "5:08", iftar: "6:05" },
+        { day: 15, date: "13 حوت", week: "چهارشنبه", sahur: "5:06", iftar: "6:06" },
+        { day: 16, date: "14 حوت", week: "پنجشنبه",   sahur: "5:05", iftar: "6:07" },
+        { day: 17, date: "15 حوت", week: "جمعه",      sahur: "5:03", iftar: "6:08" },
+        { day: 18, date: "16 حوت", week: "شنبه",      sahur: "5:02", iftar: "6:09" },
+        { day: 19, date: "17 حوت", week: "یکشنبه",    sahur: "5:01", iftar: "6:10" },
+        { day: 20, date: "18 حوت", week: "دوشنبه",    sahur: "4:59", iftar: "6:11" },
+        { day: 21, date: "19 حوت", week: "سه‌شنبه",   sahur: "4:58", iftar: "6:12" },
+        { day: 22, date: "20 حوت", week: "چهارشنبه", sahur: "4:56", iftar: "6:12" },
+        { day: 23, date: "21 حوت", week: "پنجشنبه",   sahur: "4:55", iftar: "6:13" },
+        { day: 24, date: "22 حوت", week: "جمعه",      sahur: "4:53", iftar: "6:14" },
+        { day: 25, date: "23 حوت", week: "شنبه",      sahur: "4:52", iftar: "6:15" },
+        { day: 26, date: "24 حوت", week: "یکشنبه",    sahur: "4:50", iftar: "6:16" },
+        { day: 27, date: "25 حوت", week: "دوشنبه",    sahur: "4:49", iftar: "6:17" },
+        { day: 28, date: "26 حوت", week: "سه‌شنبه",   sahur: "4:47", iftar: "6:18" },
+        { day: 29, date: "27 حوت", week: "چهارشنبه", sahur: "4:46", iftar: "6:19" },
+        { day: 30, date: "28 حوت", week: "پنجشنبه",   sahur: "4:44", iftar: "6:20" }
     ];
 
-    // --- تابع تولید صدای کلیک ---
     function playClickSound() {
         try {
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -399,10 +506,10 @@
             const gainNode = audioCtx.createGain();
             
             oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(800, audioCtx.currentTime); // تنظیم زیری و بمی صدا
+            oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
             oscillator.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.1);
             
-            gainNode.gain.setValueAtTime(0.5, audioCtx.currentTime); // ولوم صدا
+            gainNode.gain.setValueAtTime(0.5, audioCtx.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
             
             oscillator.connect(gainNode);
@@ -416,24 +523,28 @@
     }
 
     function showSchedule() { 
-        playClickSound(); // پخش صدا
+        playClickSound();
         document.getElementById('homePage').style.display = 'none'; 
         document.getElementById('schedulePage').style.display = 'flex'; 
     }
     
     function showHome() { 
-        playClickSound(); // پخش صدا
+        playClickSound();
         document.getElementById('schedulePage').style.display = 'none'; 
         document.getElementById('homePage').style.display = 'flex'; 
     }
 
     function getAfghanDateStr(dateObj) {
-        const pDay = new Intl.DateTimeFormat('en-US-u-ca-persian', { day: 'numeric' }).format(dateObj);
-        const pMonthIndex = new Intl.DateTimeFormat('en-US-u-ca-persian', { month: 'numeric' }).format(dateObj) - 1;
+        const formatter = new Intl.DateTimeFormat('en-US-u-ca-persian', { day: 'numeric', month: 'numeric' });
+        const parts = formatter.formatToParts(dateObj);
+        
+        let pDay = parts.find(p => p.type === 'day').value;
+        let pMonth = parts.find(p => p.type === 'month').value;
+        
+        const pMonthIndex = parseInt(pMonth, 10) - 1;
         const afghanMonths = ['حمل', 'ثور', 'جوزا', 'سرطان', 'اسد', 'سنبله', 'میزان', 'عقرب', 'قوس', 'جدی', 'دلو', 'حوت'];
-        const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-        const pDayFa = pDay.toString().replace(/\d/g, x => farsiDigits[x]);
-        return `${pDayFa} ${afghanMonths[pMonthIndex]}`;
+        
+        return `${pDay} ${afghanMonths[pMonthIndex]}`;
     }
 
     function updateClock() {
@@ -441,7 +552,6 @@
         const h24 = now.getHours();
         const m = String(now.getMinutes()).padStart(2, '0');
         
-        // تنظیم قبل/بعد از ظهر
         const ampm = h24 >= 12 ? 'بعد از ظهر' : 'قبل از ظهر';
         const h12 = h24 % 12 || 12;
         const displayH = String(h12).padStart(2, '0');
@@ -450,7 +560,6 @@
         document.getElementById('liveClockMinute').innerText = m;
         document.getElementById('ampmIndicator').innerText = ampm;
 
-        // دریافت تاریخ شمسی امروز برای پیدا کردن اطلاعات جدول
         const dateStr = getAfghanDateStr(now);
         const weekStr = new Intl.DateTimeFormat('fa-AF', { weekday: 'long' }).format(now);
 
@@ -458,40 +567,46 @@
         document.getElementById('homeDayName').innerText = weekStr;
 
         let todayData = ramadanData.find(d => dateStr === d.date);
-        if(!todayData) todayData = ramadanData.find(d => d.week === weekStr);
 
         if(todayData) {
             document.getElementById('homeIftar').innerText = todayData.iftar;
             document.getElementById('homeSahur').innerText = todayData.sahur;
+        } else {
+            document.getElementById('homeIftar').innerText = "--:--";
+            document.getElementById('homeSahur').innerText = "--:--";
         }
     }
 
+    function convertToFarsi(str) {
+        const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        return str.replace(/\d/g, x => farsiDigits[x]);
+    }
+
     function initApp() {
-        // پر کردن جدول
         const tbody = document.getElementById('tableBody');
         const now = new Date();
         const dateStr = getAfghanDateStr(now);
-        const weekStr = new Intl.DateTimeFormat('fa-AF', { weekday: 'long' }).format(now);
         
         let todayData = ramadanData.find(d => dateStr === d.date);
-        if(!todayData) todayData = ramadanData.find(d => d.week === weekStr);
 
         ramadanData.forEach((item) => {
             const tr = document.createElement('tr');
             if(item.week === "جمعه") tr.classList.add('friday-row');
             if(todayData && item.day === todayData.day) tr.classList.add('today-highlight');
-            tr.innerHTML = `<td>${item.day}</td><td>${item.date}</td><td style="color:green; font-weight:bold;">${item.sahur}</td><td style="color:red; font-weight:bold;">${item.iftar}</td><td>${item.week}</td>`;
+            
+            const farsiDay = convertToFarsi(item.day.toString());
+            const farsiDate = convertToFarsi(item.date);
+
+            tr.innerHTML = `<td>${farsiDay}</td><td>${farsiDate}</td><td style="color:green; font-weight:bold;">${item.sahur}</td><td style="color:red; font-weight:bold;">${item.iftar}</td><td>${item.week}</td>`;
             tbody.appendChild(tr);
         });
         
-        // فراخوانی اولیه ساعت و اجرای مکرر هر ثانیه
         updateClock();
         setInterval(updateClock, 1000);
     }
 
-    // تابع ذخیره عکس
     function saveAsImage() {
-        playClickSound(); // پخش صدا در زمان ذخیره عکس (اختیاری)
+        playClickSound();
         const captureElement = document.getElementById('captureArea');
         const saveBtn = document.querySelector('.save-btn');
         saveBtn.innerText = "در حال ذخیره...";
